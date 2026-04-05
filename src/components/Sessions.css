@@ -1,0 +1,172 @@
+.sessions-container {
+  flex: 1;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sessions-header {
+  margin-bottom: 40px;
+}
+
+.sessions-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.sessions-header p {
+  margin: 5px 0 0 0;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.create-session-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.create-session-form input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.create-session-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.create-session-form input:disabled {
+  background-color: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.create-session-form button {
+  padding: 12px 24px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-session-form button:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.create-session-form button:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.error-message {
+  padding: 12px 16px;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #fecaca;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.session-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.session-info {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.session-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.doc-count {
+  margin: 8px 0 4px 0;
+  color: #3b82f6;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.created-date {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.session-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-chat {
+  flex: 1;
+  padding: 10px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-chat:hover {
+  background: #2563eb;
+}
+
+.btn-delete {
+  padding: 10px 16px;
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}
