@@ -7,6 +7,15 @@ interface DocumentUploadProps {
   onUploadSuccess: (filename: string) => void;
 }
 
+// Sanitize document name to work with @mention system
+const sanitizeName = (name: string): string => {
+  return name
+    .replace(/[^a-zA-Z0-9_-]/g, '') // Remove special chars and spaces
+    .replace(/^-+|-+$/g, '') // Remove leading/trailing dashes
+    .substring(0, 30) // Limit length
+    .toLowerCase(); // Lowercase for consistency
+};
+
 export default function DocumentUpload({
   sessionId,
   onUploadSuccess,
@@ -32,7 +41,9 @@ export default function DocumentUpload({
       setFile(selectedFile);
       setError(null);
       if (!documentName) {
-        setDocumentName(selectedFile.name.replace('.pdf', ''));
+        // Auto-fill with sanitized filename
+        const displayName = selectedFile.name.replace('.pdf', '');
+        setDocumentName(displayName);
       }
     }
   };
@@ -44,10 +55,16 @@ export default function DocumentUpload({
       return;
     }
 
+    const sanitized = sanitizeName(documentName);
+    if (!sanitized) {
+      setError('Document name must contain at least one letter or number');
+      return;
+    }
+
     try {
       setUploading(true);
       setError(null);
-      await ingestionApi.uploadDocument(sessionId, file, documentName);
+      await ingestionApi.uploadDocument(sessionId, file, sanitized);
       setFile(null);
       setDocumentName('');
       onUploadSuccess(file.name);
@@ -57,6 +74,8 @@ export default function DocumentUpload({
       setUploading(false);
     }
   };
+
+  const sanitizedPreview = documentName ? sanitizeName(documentName) : '';
 
   return (
     <form className="document-upload" onSubmit={handleUpload}>
@@ -73,14 +92,21 @@ export default function DocumentUpload({
         </label>
       </div>
 
-      <input
-        type="text"
-        placeholder="Document name (e.g., @algebra)"
-        value={documentName}
-        onChange={(e) => setDocumentName(e.target.value)}
-        disabled={uploading}
-        maxLength={50}
-      />
+      <div>
+        <input
+          type="text"
+          placeholder="e.g., ML notes or Python basics"
+          value={documentName}
+          onChange={(e) => setDocumentName(e.target.value)}
+          disabled={uploading}
+          maxLength={50}
+        />
+        {sanitizedPreview && (
+          <p style={{margin: '4px 0', fontSize: '12px', color: '#64748b'}}>
+            Will be saved as: <strong>@{sanitizedPreview}</strong>
+          </p>
+        )}
+      </div>
 
       <button type="submit" disabled={!file || uploading || !documentName.trim()}>
         {uploading ? 'Uploading...' : 'Upload'}

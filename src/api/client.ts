@@ -22,7 +22,9 @@ export const ingestionApi = {
   async listSessions(): Promise<Session[]> {
     const res = await fetch(`${INGESTION_API}/sessions`);
     if (!res.ok) throw new Error('Failed to fetch sessions');
-    return res.json();
+    const data = await res.json();
+    // API returns { sessions: [...] }, extract the array
+    return data.sessions || [];
   },
 
   async getSession(sessionId: string): Promise<Session> {
@@ -61,7 +63,9 @@ export const ingestionApi = {
   async listDocuments(sessionId: string): Promise<Document[]> {
     const res = await fetch(`${INGESTION_API}/sessions/${sessionId}/documents`);
     if (!res.ok) throw new Error('Failed to fetch documents');
-    return res.json();
+    const data = await res.json();
+    // API returns { documents: [...] }, extract the array
+    return data.documents || [];
   },
 
   async deleteDocument(sessionId: string, docId: string): Promise<void> {

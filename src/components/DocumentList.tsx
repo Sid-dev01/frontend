@@ -28,18 +28,16 @@ export default function DocumentList({
   return (
     <div className="document-list">
       {documents.map((doc) => (
-        <div key={doc.id} className="document-item">
+        <div key={doc.doc_id} className="document-item">
           <div className="doc-info">
-            <p className="doc-name">{doc.name}</p>
+            <p className="doc-name">{doc.document_name}</p>
             <p className="doc-meta">
-              {doc.original_filename}
-              {' • '}
-              {(doc.size / 1024).toFixed(0)}KB
+              {doc.filename}
             </p>
           </div>
           <button
             className="doc-delete"
-            onClick={() => handleDelete(doc.id)}
+            onClick={() => handleDelete(doc.doc_id)}
             title="Delete document"
           >
             ✕
