@@ -58,7 +58,7 @@ export default function Chat() {
     if (sessionId) {
       try {
         await ingestionApi.deleteDocument(sessionId, docId);
-        setDocuments(documents.filter((d) => d.id !== docId));
+        setDocuments(documents.filter((d) => d.doc_id !== docId));
       } catch (err) {
         setError(
           err instanceof Error ? err.message : 'Failed to delete document'

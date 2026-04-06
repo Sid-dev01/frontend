@@ -3,16 +3,17 @@ export interface Session {
   session_id: string;
   name: string;
   created_at: string;
-  document_count: number;
+  updated_at?: string;
+  doc_count: number;
+  documents?: Document[];
 }
 
 export interface Document {
-  id: string;
-  session_id: string;
-  name: string;
-  original_filename: string;
-  uploaded_at: string;
-  size: number;
+  doc_id: string;
+  document_name: string;
+  filename: string;
+  chunks_count: number;
+  created_at: string;
 }
 
 export interface QueryResponse {
@@ -28,9 +29,13 @@ export interface QueryResponse {
 }
 
 export interface UploadedDocument {
+  doc_id: string;
+  session_id: string;
   document_name: string;
-  chunks: number;
-  size: number;
+  filename: string;
+  chunks_count: number;
+  file_size_mb: number;
+  created_at: string;
 }
 
 export interface SessionStats {

@@ -95,7 +95,7 @@ export default function Sessions() {
             <div key={session.session_id} className="session-card">
               <div className="session-info">
                 <h3>{session.name}</h3>
-                <p className="doc-count">{session.document_count} documents</p>
+                <p className="doc-count">{session.doc_count} documents</p>
                 <p className="created-date">
                   {new Date(session.created_at).toLocaleDateString()}
                 </p>
