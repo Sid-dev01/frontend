@@ -29,13 +29,15 @@ export interface QueryResponse {
 }
 
 export interface UploadedDocument {
-  doc_id: string;
+  status: string;
   session_id: string;
+  doc_id: string;
   document_name: string;
   filename: string;
-  chunks_count: number;
+  chunks_processed: number;
   file_size_mb: number;
-  created_at: string;
+  message: string;
+  timestamp: string;
 }
 
 export interface SessionStats {
