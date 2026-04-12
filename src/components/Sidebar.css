@@ -72,6 +72,36 @@
   text-align: center;
 }
 
+.user-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-email {
+  margin: 0 0 10px 0;
+  color: #cbd5e1;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 8px 12px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+.logout-button:hover {
+  background: #dc2626;
+}
+
 .version {
   margin: 0;
   color: #64748b;
