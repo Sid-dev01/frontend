@@ -2,6 +2,5 @@
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "install": "npm install"
+  "framework": "vite"
 }
