@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ingestionApi } from '../api/client';
 import type { Session, Document } from '../types/index';
@@ -16,15 +16,7 @@ export default function Chat() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!sessionId) {
-      navigate('/sessions');
-      return;
-    }
-    loadSessionData();
-  }, [sessionId, navigate]);
-
-  const loadSessionData = async () => {
+  const loadSessionData = useCallback(async () => {
     if (!sessionId) return;
     try {
       setLoading(true);
@@ -40,7 +32,15 @@ export default function Chat() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [sessionId]);
+
+  useEffect(() => {
+    if (!sessionId) {
+      navigate('/sessions');
+      return;
+    }
+    loadSessionData();
+  }, [sessionId, navigate, loadSessionData]);
 
   const handleDocumentUploaded = async () => {
     // Reload documents after upload
