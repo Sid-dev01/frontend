@@ -125,7 +125,7 @@ export default function ChatArea({ sessionId, documents }: ChatAreaProps) {
       <div className="messages-container">
         {messages.length === 0 && (
           <div className="empty-chat">
-            <h3>🍳 Let me Cook! 🍳</h3>
+            <h3>📚 docGPT</h3>
             <p>Start by asking a question about your documents</p>
             {documents.length === 0 && (
               <p className="hint">💡 Try uploading a document first</p>

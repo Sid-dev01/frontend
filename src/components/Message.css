@@ -19,6 +19,7 @@
 .message-avatar {
   font-size: 24px;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .message-content {
@@ -33,35 +34,247 @@
 .message-text {
   margin: 0;
   padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 12px;
+  font-size: 15px;
   line-height: 1.5;
   word-wrap: break-word;
-}
-
-.message-user .message-text {
   background: #3b82f6;
   color: white;
   text-align: right;
 }
 
-.message-assistant .message-text {
+/* ==================== MARKDOWN CONTENT ==================== */
+
+.markdown-content {
+  padding: 12px 16px;
   background: #f1f5f9;
   color: #1e293b;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-x: auto;
 }
+
+.markdown-content * {
+  margin: 0;
+}
+
+/* Headings */
+.md-h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 20px 0 12px 0 !important;
+  color: #0f172a;
+  border-bottom: 2px solid #cbd5e1;
+  padding-bottom: 8px;
+}
+
+.md-h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 18px 0 10px 0 !important;
+  color: #1e293b;
+}
+
+.md-h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 14px 0 8px 0 !important;
+  color: #334155;
+}
+
+.md-h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 12px 0 6px 0 !important;
+  color: #475569;
+}
+
+/* Paragraphs */
+.md-paragraph {
+  margin: 10px 0 !important;
+  line-height: 1.7;
+}
+
+.md-paragraph:first-child {
+  margin-top: 0 !important;
+}
+
+/* Lists */
+.md-list {
+  margin: 12px 0 !important;
+  padding-left: 24px;
+  list-style: disc;
+}
+
+.md-list-ordered {
+  margin: 12px 0 !important;
+  padding-left: 24px;
+  list-style: decimal;
+}
+
+.md-list-item {
+  margin: 6px 0 !important;
+  line-height: 1.6;
+}
+
+.md-list-item strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Code */
+.md-inline-code {
+  background: #e2e8f0;
+  color: #d97706;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.md-pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 12px 0 !important;
+  line-height: 1.4;
+}
+
+.md-code-block {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  display: block;
+  width: 100%;
+}
+
+/* Syntax highlighting from highlight.js */
+.markdown-content code.language-javascript,
+.markdown-content code.language-js,
+.markdown-content code.language-python,
+.markdown-content code.language-py,
+.markdown-content code.language-java,
+.markdown-content code.language-cpp,
+.markdown-content code.language-c,
+.markdown-content code.language-html,
+.markdown-content code.language-css,
+.markdown-content code.language-sql,
+.markdown-content code.language-bash {
+  display: block;
+  padding: 12px;
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 6px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+/* Blockquotes */
+.md-blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+  margin: 12px 0 !important;
+  color: #475569;
+  font-style: italic;
+  background: #eff6ff;
+  padding: 12px;
+  padding-left: 14px;
+  border-radius: 4px;
+}
+
+/* Tables */
+.md-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 !important;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.md-thead {
+  background: #e2e8f0;
+}
+
+.md-th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #0f172a;
+  border-right: 1px solid #cbd5e1;
+}
+
+.md-th:last-child {
+  border-right: none;
+}
+
+.md-td {
+  padding: 10px 12px;
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.md-td:last-child {
+  border-right: none;
+}
+
+.md-tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.md-tbody tr:hover {
+  background: #f0f9ff;
+}
+
+/* Horizontal Rule */
+.md-hr {
+  border: none;
+  border-top: 2px solid #cbd5e1;
+  margin: 16px 0 !important;
+}
+
+/* Links */
+.md-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.md-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Strong and emphasis */
+strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+em {
+  font-style: italic;
+  color: #1e293b;
+}
+
+/* ==================== MESSAGE METADATA ==================== */
 
 .message-metadata {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .knowledge-badge {
   display: inline-block;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -89,50 +302,50 @@
 }
 
 .sources {
-  padding: 8px 12px;
+  padding: 12px;
   background: #f0f9ff;
-  border-left: 3px solid #3b82f6;
-  border-radius: 4px;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
 }
 
 .sources-label {
-  margin: 0 0 6px 0;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #0c4a6e;
+  margin: 0 0 8px 0 !important;
 }
 
 .source-item {
   display: flex;
   gap: 8px;
-  margin: 4px 0;
-  font-size: 12px;
+  margin: 6px 0;
+  font-size: 13px;
 }
 
 .source-doc {
   font-weight: 600;
   color: #0c4a6e;
-  padding: 2px 6px;
+  padding: 3px 8px;
   background: #e0f2fe;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .source-page {
   color: #0284c7;
-  font-size: 11px;
-  padding: 2px 6px;
+  font-size: 12px;
+  padding: 3px 6px;
 }
 
 .mentions {
-  padding: 8px 12px;
+  padding: 12px;
   background: #f5f3ff;
-  border-left: 3px solid #a78bfa;
-  border-radius: 4px;
+  border-left: 4px solid #a78bfa;
+  border-radius: 6px;
 }
 
 .mentions-label {
-  margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   color: #6d28d9;
+  margin: 0 !important;
   font-style: italic;
 }
